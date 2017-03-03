@@ -1,0 +1,45 @@
+ <div data-page="cinemadetail"  class="page" data-title="影院详情">
+        <div class="page-content">
+            <div class="cinemadetail">
+                <div class="list-block media-list">
+                    <div class="item-content">
+                        <div class="item-media radius"><img src="{{cinemaDetail.cinema_picture}}" onerror='this.src="img/1.png"' width="88" height="88" class="lazy lazy-loaded lazy-fadeIn"></div>
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div class="item-title" style="font-size: larger">{{cinemaDetail.cinema_name}}</div>
+                            </div>
+
+                            <div class="item-text" ><img src="img/{{cinemaDetail.score}}star.png" class="lazy lazy-loaded lazy-fadeIn"></div>
+                        </div>
+                    </div>
+
+                    <div class="item-content">
+                        <div class="item-inner">
+                            <div class="item-title-row">
+                                <div style="float:left;display: inline-block;white-space: nowrap;overflow: hidden;text-overflow:ellipsis;"><a id='map' herf="#"  lat="{{cinemaDetail.cinema_lat}}" long ="{{cinemaDetail.cinema_long}}" name="{{cinemaDetail.cinema_name}}" address="{{cinemaDetail.cinema_site}}"><i class="f7-icons" style="margin-right: 5px;">navigation</i>{{cinemaDetail.cinema_site}}</a></div>
+                                <div class="icon split right" ><a href="tel:+{{cinemaDetail.tel}}" class="external"><i class="f7-icons">phone</i></a></div>
+                             </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-block no-hairlines">
+                <div class="content-block-inner">
+                    <h3 style="text-align: center">详情介绍</h3>
+                    <div>
+                        <p class="comment" style="-webkit-line-clamp: 5;">
+                            {{cinemaDetail.cinema_comment}}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="toolbar">
+            <div class="toolbar-inner bg-white">
+                <!-- Toolbar links -->
+                <a href="movielib?cinema_code={{cinemaDetail.cinema_code}}" class="button searchmoviebutton" style="width: 100%" >查看片库</a>
+            </div>
+        </div>
+ </div>
+

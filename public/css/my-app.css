@@ -1,0 +1,161 @@
+.infinite-scroll-preloader {
+    margin-top:-20px;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.col-20 button{
+    color: white;
+    border:none;
+    text-align: center;
+}
+a {
+    color: black;
+}
+body{
+    font-family: sans-serif;
+    background: white;
+}
+a{
+    color: black;
+}
+.infinite-scroll-preloader {
+     margin-top:-20px;
+     margin-bottom: 10px;
+     text-align: center;
+ }
+.list-block {
+    margin-top:0px;
+}
+.radius img{
+    border-radius: 5px;
+}
+
+.list-block ul{
+    background: none;
+}
+.cinema-group ul li{
+    margin-bottom: 10px;
+    background: white;
+    border: none;
+}
+.list-block .item-inner{
+    position:static;
+}
+.list-group .list-title{
+    background:#BCBAB6;
+    padding: 4px 15px;
+    white-space: nowrap;
+    position: relative;
+    max-width: 100%;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    color: black;
+    z-index: 15;
+}
+.cinemadetail {
+    margin: 0px;
+}
+.cinemadetail .item-title{
+    margin-top: 10px;
+}
+.cinemadetail .item-content{
+    background: white;
+    margin-top: 5px;
+}
+.cinemadetail .list-block{
+    margin-bottom: 0px;
+}
+.cinemadetail .item-text{
+    margin-top: 20px;
+ }
+.cinemadetail .split{
+    padding: 0px 0px 0px 15px;
+    border-left:solid 3px #efeff4;
+}
+.content-block-inner h2{
+    text-align: center;
+}
+.searchmoviebutton{
+    border: none;
+    background: darkorange;
+    color: white;
+    font-size: medium;
+}
+.filter{
+    border: none;
+    background: none;
+    color: white;
+    padding: 0px;
+    margin: 0px;
+    font-size: small;
+    text-align: center;
+    overflow:visible;
+
+}
+.filter-title{
+    color: white;
+    text-align:left;
+    font-size: medium;
+    margin-top: 15px;
+}
+.footer{
+    position: absolute;
+    bottom: 0px;
+    width:100%;
+    margin:0px;
+}
+
+.kind{
+    border: solid 1px;
+    border-radius: 3px;
+    font-size: small;
+    padding: 3px;
+    margin: 3px;
+}
+
+.kinddiv{
+    color: white;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: smaller;
+    position: relative;
+    left: -3px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+
+.channel-title{
+    color: black;
+    font-size: medium;
+}
+.channel{
+    border:solid 1px #efeff4;
+    padding: 5px;
+    margin: 5px;
+    color: black;
+}
+.location-block-title{
+    padding: 10px;
+    background: gainsboro;
+}
+.comment{
+    word-break:break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.detail{
+    word-break:break-all;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+.movie-group .item-subtitle{
+    font-size: small;
+    color: gray;
+}
+.item-title{
+    font-weight: 300;
+}

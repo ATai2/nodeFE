@@ -1,0 +1,27 @@
+var config = {
+  app: {
+    appid: 'wx82fdcde14a3dedfe',
+    appsecret: '8f0caec0129fac22329e16d2534d301a',
+    token: 'tuojin',
+    encodingAESKey: '3F6IayF9bzPTY1QvMl5xKRvB5IYnShnzRJr82CaufcB'
+  },
+  pools:{mtsc:{
+    host: '192.168.1.243',
+    user: 'root',
+    password: 'root',
+    port: '3306',
+    database: 'sss',
+    //    debug:true,
+    charset: 'utf8',
+    //   stringifyObjects:true,
+    typeCast: 'false',
+    multipleStatements: true
+  }},
+  sms: {
+      appkey: '23658978',
+      appsecret: '7fe8fa757fa83fb8487d2d704b46d51c'
+    }
+  // 其他配置项...
+};
+module.exports = config;
+

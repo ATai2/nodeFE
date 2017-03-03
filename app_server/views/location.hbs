@@ -1,0 +1,60 @@
+<div data-page="location" class="page" data-title="城市选择">
+        <div class="page-content contacts-content">
+            <div class="list-block contacts-block location">
+                <div class="location-block-title">当前城市</div>
+                <div>
+                    <ul>
+                        <li>
+                            <a href="cinema?citycode={{citycode}}"  class="item-content" citycode='' id="loc">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title" >正在定位... </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="location-block-title">热门城市</div>
+                <div>
+                    {{#with hotCity}}
+                    <ul>
+                        {{#each this}}
+                        <li>
+                            <a href="cinema?citycode={{citycode}}" class="item-content" citycode="{{citycode}}">
+                                <div class="item-content">
+                                    <div class="item-inner">
+                                        <div class="item-title">{{name}}</div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+                        {{/each}}
+                    </ul>
+                    {{/with}}
+                </div>
+                <div class="location-block-title">所有城市</div>
+                    {{#with allCity}}
+                        {{#each this}}
+                        <div class="list-group">
+                        <ul>
+                            <li class="list-group-title">{{index}}</li>
+                            {{#each city}}
+                            <li>
+                                <a href="cinema?citycode={{citycode}}" class="item-content" citycode="{{citycode}}">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">{{name}}</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            {{/each}}
+                        </ul>
+                        </div>
+                        {{/each}}
+                    {{/with}}
+            </div>
+        </div>
+        <ul class="list-index"></ul>
+</div>

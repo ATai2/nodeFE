@@ -1,0 +1,100 @@
+@charset "utf-8";
+
+
+/*绑定界面优化 20160312 iyanxx*/
+body{
+    font-family: "Helvetica";
+}
+*{
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    /*-webkit-user-select:none;*/
+    -webkit-touch-callout:none;
+
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing:border-box;
+    -o-box-sizing:border-box;
+}
+body {background-color: #787878;max-width: 640px;text-align: center;margin: 0 auto;}
+.bg100 { width: 100%; }
+.bc_bg { position: relative; }
+.bc_content {
+	position: absolute;
+	text-align: center;
+    margin: 0 auto;
+    width: 100%;
+    top: 54%;
+}
+.bc_txt { margin-top: 48%; }
+.bc_txt span {
+    font-size: 18px;
+    color: #ff6e00;
+    vertical-align: middle;
+}
+.bc_btn {
+	position: absolute;
+	left: 32%;
+	width: 36%;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+.bc_btn_bg {
+	background: rgba(0, 0, 0, 0);
+	position: absolute;
+	left: 32%;
+	width: 36%;
+	height: 65%;
+    -webkit-user-select:none;
+    -webkit-touch-callout:none;
+}
+.bc_jt {
+	height: 18px;
+	vertical-align: text-top;
+}
+/*end*/
+
+.pop_bind {
+	padding: 20px;
+	text-align: center;
+}
+
+.pop_bind .input_text {
+	font-size: .9rem;
+	color: #000000;
+}
+
+.pop_bind .code_div {
+	margin: 15px 20px;
+}
+
+.pop_bind input {
+	border: none;
+	border-radius: 5px;
+	padding: 0 10px;
+	outline: none;
+	height: 45px;
+	width: 100%;
+	font-size: 1em;
+	background: rgba(0, 0, 0, 0.1);
+	overflow: hidden;
+	color: #bfbfbf;
+	text-align: center;
+}
+
+.pop_bind .bind_btn {
+	color: #fff;
+	font-size: 18px;
+	line-height: 45px;
+	background: #ff6e00;
+	border-radius: 5px;
+	cursor: pointer;
+	text-align: center;
+	margin: 0 20px;
+}
+
+.areaimg {
+    position: absolute;
+    width: 80%;
+    top: 40.3%;
+    left: 10%;
+    opacity: 0;
+}

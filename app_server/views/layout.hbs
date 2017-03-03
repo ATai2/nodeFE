@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <title>{{title}}</title>
+    <link rel="shortcut icon" href="img/favicon.ico">
+    <!-- Path to Framework7 Library CSS-->
+    {{#if ios}}
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    {{else}}
+        <link rel="stylesheet" href="css/framework7.ios.min.css">
+        <link rel="stylesheet" href="css/framework7.ios.colors.min.css">
+    {{/if}}
+
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="css/my-app.css">
+    <link rel="stylesheet" href="css/framework7.indexed-list.css">
+    <link rel="stylesheet" href="css/framework7-icons.css">
+</head>
+<body>
+<!-- Status bar overlay for fullscreen mode-->
+<div class="statusbar-overlay"></div>
+<!-- Panels overlay-->
+<div class="panel-overlay"></div>
+
+<!-- Right panel with cover effect-->
+<div class="panel panel-right panel-cover" style="width: 80%;opacity: 0.9">
+
+    <div class="content-block-title col-40 filter-title">排序</div>
+    <div class="content-block">
+        <div class="row">
+
+            <div class="col-20">
+                <button class="button">新上架</button>
+            </div>
+            <div class="col-20">
+                <button class="button">最热门</button>
+            </div>
+            <div class="col-20">
+                <button class="button">好评榜</button>
+            </div>
+            <div class="col-20"></div>
+            <div class="col-20"></div>
+        </div>
+    </div>
+
+    <div class="content-block-title col-20 filter-title">类型</div>
+    <div class="content-block">
+        <div class="row">
+            <div class="col-20">
+                <button class="button">全部</button>
+            </div>
+            <div class="col-20">
+                <button class="button">爱情</button>
+            </div>
+            <div class="col-20">
+                <button class="button">喜剧</button>
+            </div>
+            <div class="col-20">
+                <button class="button">科幻</button>
+            </div>
+            <div class="col-20">
+                <button class="button">动画</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">动作</button>
+            </div>
+            <div class="col-20">
+                <button class="button">犯罪</button>
+            </div>
+            <div class="col-20">
+                <button class="button">悬疑</button>
+            </div>
+            <div class="col-20">
+                <button class="button">剧情</button>
+            </div>
+            <div class="col-20">
+                <button class="button">科幻</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">惊悚</button>
+            </div>
+            <div class="col-20">
+                <button class="button">冒险</button>
+            </div>
+            <div class="col-20">
+                <button class="button">3D</button>
+            </div>
+            <div class="col-20">
+                <button class="button">家庭</button>
+            </div>
+            <div class="col-20">
+                <button class="button">灾难</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">恐怖</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-block-title col-20 filter-title">地区</div>
+    <div class="content-block">
+        <div class="row">
+            <div class="col-20">
+                <button class="button">全部</button>
+            </div>
+            <div class="col-20">
+                <button class="button">中国大陆</button>
+            </div>
+            <div class="col-20">
+                <button class="button">香港</button>
+            </div>
+            <div class="col-20">
+                <button class="button">台湾</button>
+            </div>
+            <div class="col-20">
+                <button class="button">韩国</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">美国</button>
+            </div>
+            <div class="col-20">
+                <button class="button">日本</button>
+            </div>
+            <div class="col-20">
+                <button class="button">泰国</button>
+            </div>
+            <div class="col-20">
+                <button class="button">英国</button>
+            </div>
+            <div class="col-20">
+                <button class="button">法国</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">德国</button>
+            </div>
+        </div>
+    </div>
+    <div class="content-block-title col-20 filter-title">年份</div>
+    <div class="content-block">
+        <div class="row">
+            <div class="col-20">
+                <button class="button">全部</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2016</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2015</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2014</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2013</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">2012</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2011</button>
+            </div>
+            <div class="col-20">
+                <button class="button">2011</button>
+            </div>
+            <div class="col-20">
+                <button class="button">00年代</button>
+            </div>
+            <div class="col-20">
+                <button class="button">90年代</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-20">
+                <button class="button">80年代</button>
+            </div>
+            <div class="col-20">
+                <button class="button">更早</button>
+            </div>
+            <div class="col-20"></div>
+            <div class="col-20"></div>
+            <div class="col-20"></div>
+        </div>
+    </div>
+    <div class="footer">
+        <div style="padding: 10px">
+            <a href="#" class="button" style="background: white;color: black;border: none">完成</a>
+        </div>
+    </div>
+
+</div>
+
+<!-- Views-->
+<div class="views">
+    <!-- Your main view, should have "view-main" class-->
+    <div class="view view-main">
+        <div class="pages">
+            {{{body}}}
+        </div>
+    </div>
+</div>
+
+<!-- Path to Framework7 Library JS-->
+<script type="text/javascript" src="js/framework7.min.js"></script>
+<!-- Path to weixin Library JS-->
+<script type="text/javascript" src="js/jweixin-1.1.0.js"></script>
+<script type="text/javascript" src="js/framework7.indexed-list.js"></script>
+<!-- Path to your app js-->
+
+<script>
+    //wx
+    var sign_pkg = '{{sign_pkg}}';
+    var open_id = '{{open_id}}';
+    var wx_share = undefined;
+    var wechatConfigInit = false; //判断是否初始化成功
+    if (sign_pkg != undefined) {
+        wechatConfigInit = true;
+        wx.config({
+            debug: false,
+            appId: '{{appId}}',
+            timestamp: '{{timestamp}}',
+            nonceStr: '{{nonceStr}}',
+            signature: '{{signature}}',
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone',
+                'hideMenuItems',
+                'getNetworkType',
+                'scanQRCode',
+                'openLocation',
+                'getLocation'
+            ]
+        });
+
+    }
+
+</script>
+<script type="text/javascript" src="js/my-app.js"></script>
+</body>
+</html>

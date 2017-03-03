@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags-->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <!-- Color theme for statusbar -->
+    <meta name="theme-color" content="#2196f3">
+    <!-- Your app title -->
+    <title>My App</title>
+    <!-- Path to Framework7 Library CSS, Material Theme -->
+    <link rel="stylesheet" href="path/to/framework7.material.min.css">
+    <!-- Path to Framework7 color related styles, Material Theme -->
+    <link rel="stylesheet" href="path/to/framework7.material.colors.min.css">
+    <!-- Path to your custom app styles-->
+    <link rel="stylesheet" href="path/to/my-app.css">
+</head>
+<body>
+
+<div data-page="register" class="page" data-title="用户注册">
+    <form class="searchbar searchbar-init cinemasearchbar" method="post" action="">
+        <div>
+        <div>
+            手机： <input type="text" name="phone" placeholder="请输入手机号">
+        </div>
+        <div>
+            短信验证码： <input type="text"  id="edtqr" name="qrcode" placeholder="请输入验证码">
+            <button name="btnsms" class="button" id="btnsms" value="点击获取"/>
+
+        </div>
+
+        <input id="sub" type="submit" value="提交注册"/>
+        <a href="#" class="searchbar-cancel">取消</a>
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

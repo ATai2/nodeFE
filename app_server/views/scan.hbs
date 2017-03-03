@@ -1,0 +1,395 @@
+<!doctype html>
+<html>
+
+<head>
+    <title>{{title}}</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=no" />
+    <meta content="yes" name="apple-mobile-web-app-capable" />
+    <meta content="black" name="apple-mobile-web-app-status-bar-style" />
+    <meta content="telephone=no" name="format-detection" />
+    <link rel="stylesheet" href="css/bind.css?v=20160401" />
+    <link rel="stylesheet" href="css/JAlertBox.css">
+</head>
+
+<body onclick="">
+<div class="bc_bg">
+    <img class="bg100" src="img/page_bind_bg.png?v=20160414" alt="背景" />
+    <img class="areaimg" src="img/area.png" />
+    <img class="areaimg" src="img/area.png" />
+    <img class="areaimg" src="img/area.png" />
+    <img class="areaimg" src="img/area.png" />
+    <img class="areaimg" src="img/area.png" />
+    <img class="areaimg" src="img/area.png" />
+    <div class="bc_content">
+        <img class="bc_btn" src="img/bc_btn1.png" alt="按钮" />
+        <div class="bc_btn_bg"></div>
+    </div>
+</div>
+<div id="pop_bg" class="pop_bg" onclick=""></div>
+<script src="js/jquery.min.js"></script>
+<script src="js/JAlertBox.js"></script>
+<script src="js/toast.js?37"></script>
+<script src="js/jweixin-1.1.0.js"></script>
+<script>
+
+    /*设置动画*/
+    function setaction(t,e){
+        var minsize=0.35;
+        var maxsize=1;
+        var minopa=0;
+        var maxopa=0.25;
+
+        setInterval(function(){
+            if(t>=100){
+                t=0
+            }
+            t+=0.5
+
+            var csize=minsize+((maxsize-minsize)/100)*t;
+            var copa=maxopa-((maxopa-minopa)/100)*t;
+
+            if(csize<0.45){
+                copa=0
+            }
+
+            $(e).css({
+                'opacity':copa,
+                'transform':'scale('+csize+','+csize+')',
+                '-webkit-transform':'scale('+csize+','+csize+')'
+            });
+            $(e).css({
+            });
+        },80);
+    }
+    var ts=-20;
+    $(".areaimg").each(function(index,elelment){
+
+        setaction(ts,elelment);
+        ts+=20;
+    });
+
+    //wx分享
+    var sign_pkg = '{{sign_pkg}}';
+    var  open_id = '{{open_id}}';
+    var wx_share = undefined;
+    var wechatConfigInit = false; //判断是否初始化成功
+    if(sign_pkg != undefined){
+        wechatConfigInit = true;
+        wx.config({
+            debug: false,
+            appId: '{{appId}}',
+            timestamp: '{{timestamp}}',
+            nonceStr: '{{nonceStr}}',
+            signature: '{{signature}}',
+            jsApiList: [
+                'checkJsApi',
+                'onMenuShareTimeline',
+                'onMenuShareAppMessage',
+                'onMenuShareQQ',
+                'onMenuShareWeibo',
+                'onMenuShareQZone',
+                'hideMenuItems',
+                'getNetworkType',
+                'scanQRCode'
+            ]
+        });
+        wx.ready(function () {
+            wechatConfigInit = true;
+            var host = window.location.host;
+
+            //隐藏菜单按钮
+            wx.hideMenuItems({
+                menuList: ['menuItem:copyUrl']
+            });
+
+           /* //分享给朋友
+            wx.onMenuShareAppMessage({
+                title: wx_share.title,
+                desc: wx_share.desc,
+                link: 'http://' + host + wx_share.link,
+                imgUrl: 'http://' + host + wx_share.imgurl,
+                trigger: function (res) {
+                    //alert('用户点击发送给朋友');
+                },
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            //分享到朋友圈
+            wx.onMenuShareTimeline({
+                title: wx_share.title,
+                desc: wx_share.desc,
+                link: 'http://' + host + wx_share.link,
+                imgUrl: 'http://' + host + wx_share.imgurl,
+                trigger: function (res) {
+                    //alert('用户点击分享到朋友圈');
+                },
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.3 监听“分享到QQ”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareQQ({
+                title: wx_share.title,
+                desc: wx_share.desc,
+                link: 'http://' + host + wx_share.link,
+                imgUrl: 'http://' + host + wx_share.imgurl,
+                trigger: function (res) {
+                    //alert('用户点击分享到QQ');
+                },
+                complete: function (res) {
+                    //alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                    // alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.4 监听“分享到微博”按钮点击、自定义分享内容及分享结果接口
+            wx.onMenuShareWeibo({
+                title: wx_share.title,
+                desc: wx_share.desc,
+                link: 'http://' + host + wx_share.link,
+                imgUrl: 'http://' + host + wx_share.imgurl,
+                trigger: function (res) {
+                    // alert('用户点击分享到微博');
+                },
+                complete: function (res) {
+                    // alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                    // alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });
+
+            // 2.5 监听“分享到QZone”按钮点击、自定义分享内容及分享接口
+            wx.onMenuShareQZone({
+                title: wx_share.title,
+                desc: wx_share.desc,
+                link: 'http://' + host + wx_share.link,
+                imgUrl: 'http://' + host + wx_share.imgurl,
+                trigger: function (res) {
+                    //alert('用户点击分享到QZone');
+                },
+                complete: function (res) {
+                    //alert(JSON.stringify(res));
+                },
+                success: function (res) {
+                    //alert('已分享');
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                }
+            });*/
+
+            wx.error(function (res) {
+                // alert(res.errMsg);
+                wechatConfigInit = false;
+            });
+
+        });
+    }
+
+
+    //获取网络状态
+    var now_network_type = '';
+    function getNetWorkType(){
+        wx.getNetworkType({
+            success: function (res) {
+                var networkTypeStr = res.networkType; // 返回网络类型2g，3g，4g，wifi
+                if(networkTypeStr.match("wifi") == "wifi"){
+                    now_network_type = 1; //wifi
+                }else{
+                    now_network_type = 2; //3g、4g
+                }
+                // alert(now_network_type);
+            }
+        });
+    }
+
+    //调用微信扫一扫
+    var now_use_qrcode = false;
+    function useWechatQRCode(){
+        if(wechatConfigInit){
+            mcancel();
+            now_use_qrcode = false;
+            wx.scanQRCode({
+                needResult: 1,
+                success: function (res) {
+                    mcancel();
+                    now_use_qrcode = false;
+                    if(res.errMsg == "scanQRCode:ok"){//成功
+
+                        var myurl = parseURL(res.resultStr);
+
+                        if(myurl.params.roomid){
+                            bindBarcode(res.resultStr,open_id,myurl.params.roomid);
+                        }else{
+                            new Toast({message:'连接包厢失败[SQRE]'}).show();
+                        }
+                    }else{
+                        new Toast({message:'连接包厢失败[SQRF]'}).show();
+                    }
+                },
+                cancel: function (res) {
+                    //alert('已取消');
+                    now_use_qrcode = false;
+                    mcancel();
+                    new Toast({message:'您已取消扫描<br/>'}).show();
+                },
+                fail: function (res) {
+                    //alert(JSON.stringify(res));
+                    now_use_qrcode = false;
+                    mcancel();
+                    new Toast({message:'扫描失败！请重试！<br/>'+res.errMsg}).show();
+                }
+            });
+        }else{
+            now_use_qrcode = false;
+            mcancel();
+            new Toast({message:'初始化失败！<br/>暂时无法使用<br/>'}).show();
+        }
+    }
+
+    //扫描按钮缩放效果
+    function touchZoomEvent(){
+        $('.bc_btn_bg,.bc_btn').on('touchstart',function(e){
+            getNetWorkType();
+            $(".bc_btn").animate({
+                'width':'32%',
+                'left':'34%',
+                'top' : '4%'
+            },200);
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+        $('.bc_btn_bg,.bc_btn').on('touchend',function(e){
+            mloading();
+            $("#loading .load_text").remove();
+            $("#loading").append('<div class="load_text" style="margin-top: 79%;padding:10px;">准备扫描...</div>');
+            $("#loading").css("position","fixed");
+            $(".bc_btn").animate({
+                'width':'36%',
+                'left':'32%',
+                'top' : '0'
+            },200);
+            if(!now_use_qrcode){
+                now_use_qrcode = true;
+                useWechatQRCode();
+            }
+            e.preventDefault();
+            e.stopPropagation();
+            return false;
+        });
+    }
+    touchZoomEvent();
+
+    $("#pop_bg").live('click',function(){
+        mcancel();
+    });
+
+    function parseURL(url) {
+        var a =  document.createElement('a');
+        a.href = url;
+        return {
+            source: url,
+            protocol: a.protocol.replace(':',''),
+            host: a.hostname,
+            port: a.port,
+            query: a.search,
+            params: (function(){
+                var ret = {},
+                        seg = a.search.replace(/^\?/,'').split('&'),
+                        len = seg.length, i = 0, s;
+                for (;i<len;i++) {
+                    if (!seg[i]) { continue; }
+                    s = seg[i].split('=');
+                    ret[s[0]] = s[1];
+                }
+                return ret;
+            })(),
+            file: (a.pathname.match(/\/([^\/?#]+)$/i) || [,''])[1],
+            hash: a.hash.replace('#',''),
+            path: a.pathname.replace(/^([^\/])/,'/$1'),
+            relative: (a.href.match(/tps?:\/\/[^\/]+(.+)/) || [,''])[1],
+            segments: a.pathname.replace(/^\//,'').split('/')
+        };
+    }
+
+    //处理绑定
+    function bindBarcode(myurl,open_id,roomid){
+        var networktype = now_network_type;
+        mcancel();
+        mloading();
+        $("#loading .load_text").remove();
+        $("#loading").append('<div class="load_text" style="margin-top: 79%;padding:10px;">正在绑定...</div>');
+        $("#loading").css("position","fixed");
+
+        $.ajax({
+            type : "post",
+            timeout:20000,
+            dataType : "json",
+            url : "/scanauth",
+            global : false,
+            data : {
+                'myurl' : encodeURI(myurl),
+                'open_id' : encodeURI(open_id),
+                'roomid' : encodeURI(roomid),
+                'networktype' : networktype
+            },
+            success : function(data) {
+                mcancel();
+                if(data.error == 0){
+                    new Toast({message:'绑定成功，正在进入...'}).show();
+                    setTimeout(function(){
+                        //window.location.href =  $('input[name="callback"]').val();
+                        window.location.href =  myurl+'&openid='+open_id;
+                    },1000);
+                }else{
+                    new Toast({message:data.message}).show();
+                }
+            },
+            error: function(response) {
+                //请求出错
+                mcancel();
+                console.log('ajax error ！');
+            }
+        });
+
+    }
+
+</script>
+</body>
+
+</html>

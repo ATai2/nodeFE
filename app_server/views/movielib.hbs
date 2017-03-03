@@ -1,0 +1,57 @@
+<div data-page="movielib" class="page" data-title="影院片库">
+    <!-- Search bar -->
+    <form class="searchbar searchbar-init" data-search-list=".contacts-list" data-search-in=".item-title">
+        <div class="searchbar-input">
+            <input type="search" placeholder="搜索影吧">
+            <a href="#" class="searchbar-clear"></a>
+        </div>
+        <a href="#" class="searchbar-cancel" >取消</a>
+        <div>
+            <p><a href="#" data-panel="right"  class="button open-panel" style="margin-left:10px;background-color:white;border-color:white">筛选</a></p>
+        </div>
+    </form>
+
+    <div class="page-content infinite-scroll">
+        <div class="list-block media-list searchbar-found">
+            <div class="list-group cinema-group movie-group">
+                <ul>
+                    {{#each data.data}}
+                    <li>
+                        <a href="moviedetail?mid={{mid}}">
+                            <div class="item-content">
+                                <div class="item-media"><img src="{{movie_bigpic}}" width="90" height="120" class="lazy lazy-loaded lazy-fadeIn"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title">{{movie_name}}</div>
+                                        <div class="item-after"><b style="color: gold">{{score}}</b></div>
+                                    </div>
+                                    <div class="item-subtitle">
+                                        <div style="margin-top: 30px;overflow:hidden;text-overflow: ellipsis">导演:{{director}}</div>
+                                        <div style="overflow:hidden;text-overflow: ellipsis">演员:{{cast}}</div>
+                                        <div class="kinddiv">
+                                            <span class="kind" style="background-color: #03a9f4;max-width: 6em;display:-moz-inline-box;display:inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{category}}</span>
+                                            <span class="kind" style="background-color: #8bc34a;max-width: 6em;display:-moz-inline-box;display:inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{country}}</span>
+                                            <span class="kind" style="background-color: #5856d6;max-width: 6em;display:-moz-inline-box;display:inline-block;overflow: hidden;white-space: nowrap;text-overflow: ellipsis;">{{publishdate}}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </a>
+                    </li>
+                    {{/each}}
+                </ul>
+            </div>
+        </div>
+
+        <!-- 加载提示符 -->
+        <div class="infinite-scroll-preloader">
+            <div></div>
+        </div>
+
+        <input id="movie_pageSize" name="movie_pageSize" type="hidden" value="{{data.param_pageSize}}"/>
+        <input id="movie_totalPage" name="movie_totalPage" type="hidden" value="{{data.totalPage}}"/>
+
+
+    </div>
+</div>
+
